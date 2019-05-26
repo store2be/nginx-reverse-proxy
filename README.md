@@ -1,5 +1,7 @@
 # Nginx reverse proxy
 
+[![Docker Repository on Quay](https://quay.io/repository/store2be/nginx-reverse-proxy/status "Docker Repository on Quay")](https://quay.io/repository/store2be/nginx-reverse-proxy)
+
 This Docker image provides a simple Nginx reverse proxy that can be used to proxy all requests to one specific server.
 
 The purpose of this simple proxy is to be used in Kubernetes to proxy requests to an external service. Kubernetes has a service type `ExternalName` but there you can't have any advanced configuration like setting headers. Also the annotations on an `Ingress` are very limited for now.

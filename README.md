@@ -4,6 +4,14 @@ This Docker image provides a simple Nginx reverse proxy that can be used to prox
 
 The purpose of this simple proxy is to be used in Kubernetes to proxy requests to an external service. Kubernetes has a service type `ExternalName` but there you can't have any advanced configuration like setting headers. Also the annotations on an `Ingress` are very limited for now.
 
+## Usage
+
+```bash
+docker run -p 80:80 --rm -e PROXY_URL=example.com quay.io/store2be/nginx-reverse-proxy
+```
+
+Find the available versions on [quay.io](https://quay.io/repository/store2be/nginx-reverse-proxy?tab=tags) ([Changelog](CHANGELOG.md)).
+
 ## Environment variables
 
 Have a look at [entrypoint.sh](entrypoint.sh) for how the environment variables change the Nginx config.

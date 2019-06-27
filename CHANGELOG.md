@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.2] - 2019-06-27
+- ✨ Add the option to remove query parameters from the cache key
+
 ## [0.1.1] - 2019-06-26
 - 🐛 Ignore Cache-Control and Set-Cookie headers when caching
 

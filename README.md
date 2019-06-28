@@ -37,7 +37,7 @@ CACHE=true
 ```
 ### CACHE_IGNORE_QUERY_PARAMS
 
-You can configure caching to ignore query parameters and only cache according to the URL.
+You can configure caching to ignore query parameters and only cache according to the path of the URL.
 
 ```
 # Example
@@ -79,7 +79,7 @@ docker exec -ti $(docker ps | grep nginx-reverse-proxy | awk '{print $1}') tcpdu
 
 ### Before merging to master
 
-Make sure you update CHANGELOG.md and README.md when appropriate.
+Make sure you update the [CHANGELOG](CHANGELOG.md) and the [README](README.md) when appropriate.
 
 *CHANGELOG.md entry format:*
 
@@ -92,4 +92,4 @@ Bump version according to [SemVer](https://semver.org/).
 
 ### After merging to master
 
-Tag the head with the new version, this should generate an image with the version as a tag.
+Tag the head with the new version and push it to Github. This then automatically generates the new image on quay.io with the version as a tag.

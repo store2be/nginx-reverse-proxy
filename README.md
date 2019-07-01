@@ -35,6 +35,16 @@ Optional. Defaults to `false`. Specifies whether or not to cache the pages.
 # Example
 CACHE=true
 ```
+### CACHE_IGNORE_QUERY_PARAMS
+
+You can configure caching to ignore query parameters and only cache according to the path of the URL.
+
+```
+# Example
+CACHE_IGNORE_QUERY_PARAMS=true
+```
+
+*Note:* Needs `CACHE` environment variable set to `true` to take effect.
 
 ## Run locally
 
@@ -64,3 +74,22 @@ docker build -t nginx-reverse-proxy .
 docker run --privileged -p 80:80 --rm -e PROXY_URL=example.com nginx-reverse-proxy strace nginx-debug -g 'daemon off;'
 docker exec -ti $(docker ps | grep nginx-reverse-proxy | awk '{print $1}') tcpdump not port 22 -vvv -s0 -q -XXX
 ```
+
+## Releasing
+
+### Before merging to master
+
+Make sure you update the [CHANGELOG](CHANGELOG.md) and the [README](README.md) when appropriate.
+
+*CHANGELOG.md entry format:*
+
+```
+## [0.0.0] - 1970-01-01
+- ✨ Add a new feature
+```
+
+Bump version according to [SemVer](https://semver.org/).
+
+### After merging to master
+
+Tag the head with the new version and push it to Github. This then automatically generates the new image on quay.io with the version as a tag.

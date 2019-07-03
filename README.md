@@ -16,7 +16,7 @@ Find the available versions on [quay.io](https://quay.io/repository/store2be/ngi
 
 ## Environment variables
 
-Have a look at [entrypoint.sh](entrypoint.sh) for how the environment variables change the Nginx config.
+Have a look at [nginx.proxy.conf.esh](nginx.proxy.conf.esh) for how the environment variables change the Nginx config.
 
 ### PROXY_URL
 
@@ -27,24 +27,54 @@ Required. Specifies the domain that should be proxied.
 PROXY_URL=example.com
 ```
 
-### CACHE
+### MAIN_CACHE
 
-Optional. Defaults to `false`. Specifies whether or not to cache the pages.
-
-```
-# Example
-CACHE=true
-```
-### CACHE_IGNORE_QUERY_PARAMS
-
-You can configure caching to ignore query parameters and only cache according to the path of the URL.
+Optional. Defaults to `false`. Toggles caching for the all the routes.
 
 ```
 # Example
-CACHE_IGNORE_QUERY_PARAMS=true
+MAIN_CACHE=true
 ```
 
-*Note:* Needs `CACHE` environment variable set to `true` to take effect.
+### MAIN_CACHE_QUERY
+
+Optional. Defaults to `false`. Toggles ignoring query params when caching.
+Takes effect only when `MAIN_CACHE` is set to `true`
+
+```
+# Example
+MAIN_CACHE_QUERY=true
+```
+
+### SECONDARY_CACHE_REGEX
+
+Optional. It is used to specify a set of routes that will behave differently from the main configuration.
+
+Defaults to `false` which indicates this setting is inactive, otherwise the value should be in the Nginx location regex format.
+
+
+```
+# Example
+SECONDARY_CACHE_REGEX="~ .(png|gif|jpeg)$"
+```
+
+### SECONDARY_CACHE
+
+Optional. Defaults to `false`. Toggles caching for the routes specificed by `SECONDARY_CACHE_REGEX`.
+
+```
+# Example
+SECONDARY_CACHE=true
+```
+
+### SECONDARY_CACHE_QUERY
+
+Optional. Defaults to `false`. Toggles ignoring query params when caching for the routes specificed by `SECONDARY_CACHE_REGEX`.
+
+```
+# Example
+SECONDARY_CACHE_QUERY=true
+```
 
 ## Run locally
 

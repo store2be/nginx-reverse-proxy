@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## [0.3] - 2019-07-04
+- 💥 Introduce templating and more flexible caching options
+    - Include esh (https://github.com/jirutka/esh) for templating
+    - Add the option to configure a single subset of the routes differently
+      So the following setups are possible:
+
+      * Secondary block (not exist / regex + with cache / regex + without cache)
+      * Main block (not cache at all / cache with params / cache without params)
+
 ## [0.2] - 2019-06-27
 - ✨ Add the option to remove query parameters from the cache key
 

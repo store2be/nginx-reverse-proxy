@@ -40,6 +40,8 @@ server {
 
       <% if test "$SECONDARY_CACHE" = "true"; then %>
         proxy_ignore_headers Cache-Control Set-Cookie;
+
+        proxy_cache_valid 500 502 503 504 1m;
         proxy_cache_valid any 1d;
 
         # See https://www.nginx.com/blog/nginx-caching-guide/
@@ -70,6 +72,8 @@ server {
 
     <% if test "$MAIN_CACHE" = "true"; then %>
       proxy_ignore_headers Cache-Control Set-Cookie;
+
+      proxy_cache_valid 500 502 503 504 1m;
       proxy_cache_valid any 1d;
 
       # See https://www.nginx.com/blog/nginx-caching-guide/

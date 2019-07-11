@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.4] - 2019-07-11
+- ♻️ Decrease cache timeout for 500s to 1 minute
+
 ## [0.3] - 2019-07-04
 - 💥 Introduce templating and more flexible caching options
     - Include esh (https://github.com/jirutka/esh) for templating

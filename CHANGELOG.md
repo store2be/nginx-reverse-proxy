@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.5] - 2019-08-20
+- ✨ Make cache validity duration for non 5XX responses configurable
+
 ## [0.4] - 2019-07-11
 - ♻️ Decrease cache timeout for 500s to 1 minute
 

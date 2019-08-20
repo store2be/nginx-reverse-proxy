@@ -76,6 +76,15 @@ Optional. Defaults to `false`. Toggles ignoring query params when caching for th
 SECONDARY_CACHE_QUERY=true
 ```
 
+### CACHE_VALIDITY_DURATION
+
+Optional. Defaults to `1h`. Sets the cache validitiy duration for non 5XX requests. The time units used should be the ones recognized by Nginx.
+
+```
+# Example
+CACHE_VALIDITY_DURATION=1d
+```
+
 ## Run locally
 
 When you want to test the Docker image, you can run it locally for example with the following command:

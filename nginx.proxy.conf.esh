@@ -7,6 +7,8 @@
   SECONDARY_REGEX="${SECONDARY_REGEX:-false}"
   SECONDARY_CACHE="${SECONDARY_CACHE:-false}"
   SECONDARY_CACHE_QUERY="${SECONDARY_CACHE_QUERY:-false}"
+
+  CACHE_VALIDITY_DURATION="${CACHE_VALIDITY_DURATION:-1h}"
 -%>
 proxy_cache_path /tmp/proxy-cache levels=1:2 keys_zone=default_cache:10m max_size=1g
                  inactive=1d use_temp_path=off;
@@ -42,7 +44,7 @@ server {
         proxy_ignore_headers Cache-Control Set-Cookie;
 
         proxy_cache_valid 500 502 503 504 1m;
-        proxy_cache_valid any 1d;
+        proxy_cache_valid any <%= $CACHE_VALIDITY_DURATION %>;
 
         # See https://www.nginx.com/blog/nginx-caching-guide/
         proxy_cache                   default_cache;
@@ -74,7 +76,7 @@ server {
       proxy_ignore_headers Cache-Control Set-Cookie;
 
       proxy_cache_valid 500 502 503 504 1m;
-      proxy_cache_valid any 1d;
+      proxy_cache_valid any <%= $CACHE_VALIDITY_DURATION %>;
 
       # See https://www.nginx.com/blog/nginx-caching-guide/
       proxy_cache                   default_cache;

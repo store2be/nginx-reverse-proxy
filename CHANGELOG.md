@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.5.2] - 2020-01-28
+- 🔒 Add explicit `apk upgrade` step
+
 ## [0.5.1] - 2020-01-28
 - 🔒 Update packages
 

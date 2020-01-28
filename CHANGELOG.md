@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.6] - 2020-01-28
+- ✨ Make the host header configurable, but fall back to `PROXY_URL`
+
 ## [0.5.2] - 2020-01-28
 - 🔒 Add explicit `apk upgrade` step
 

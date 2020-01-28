@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.5.1] - 2020-01-28
+- 🔒 Update packages
+
 ## [0.5] - 2019-08-20
 - ✨ Make cache validity duration for non 5XX responses configurable
 

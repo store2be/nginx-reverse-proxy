@@ -27,6 +27,15 @@ Required. Specifies the domain that should be proxied.
 PROXY_URL=example.com
 ```
 
+### PROXY_HOST
+
+Optional. Specifies the host header to be used when calling the proxied URL. Defaults to the `PROXY_URL`.
+
+```
+# Example
+PROXY_HOST=test.example.com
+```
+
 ### MAIN_CACHE
 
 Optional. Defaults to `false`. Toggles caching for the all the routes.

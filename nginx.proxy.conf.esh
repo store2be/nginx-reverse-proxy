@@ -1,6 +1,6 @@
 <%
   PROXY_URL="${PROXY_URL:-missing}"
-  HOST="${HOST:-${PROXY_URL}}"
+  PROXY_HOST="${PROXY_HOST:-${PROXY_URL}}"
 
   MAIN_CACHE="${MAIN_CACHE:-false}"
   MAIN_CACHE_QUERY="${MAIN_CACHE_QUERY:-false}"
@@ -31,7 +31,7 @@ server {
     location <%= $SECONDARY_REGEX %> {
       access_log /var/log/nginx/access.log proxy_logging;
 
-      proxy_set_header      Host <%= $HOST %>;
+      proxy_set_header      Host <%= $PROXY_HOST %>;
       proxy_pass            https://$proxy_url;
       proxy_ssl_server_name on;
       proxy_redirect        http://$proxy_url/ /;
@@ -63,7 +63,7 @@ server {
   location / {
     access_log /var/log/nginx/access.log proxy_logging;
 
-    proxy_set_header      Host <%= $HOST %>;
+    proxy_set_header      Host <%= $PROXY_HOST %>;
     proxy_pass            https://$proxy_url;
     proxy_ssl_server_name on;
     proxy_redirect        http://$proxy_url/ /;
